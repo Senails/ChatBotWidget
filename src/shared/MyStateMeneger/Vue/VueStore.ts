@@ -1,6 +1,6 @@
 // !!! Only for Vue !!!
 import { computed, onUnmounted, ref } from "vue";
-import { CreateUnivarsalStore, type Selector, type Store } from "../UiversalStore/store";
+import { CreateUnivarsalStore, type Selector, type Store } from "../UniversalStore/store";
 
 
 export function CreateVueStore<T extends Store>(initialStore: T){
