@@ -72,6 +72,5 @@ const CloseChat = ()=>{
         {{`<->`}}
     </button> 
     </div>
-    {{ state }}
 </template>
 
