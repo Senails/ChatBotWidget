@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import MyInput from './MyInput.vue';
 import { ref, watch } from 'vue';
-import { UpdateStore } from '@/shared/MyStateMeneger/Vue/VueState';
 
 
 const meta = {
@@ -14,12 +13,6 @@ const meta = {
         const text = ref(args.text);
         const onChange = (t:string)=>{
           text.value = t;
-          UpdateStore(()=>{
-            return {
-              num: t.length,
-              text: t,
-            }
-          });
         }
         watch(args,()=>{
             charLimit.value = args.charLimit;

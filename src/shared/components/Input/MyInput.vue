@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { useSelector } from '@/shared/MyStateMeneger/Vue/VueState';
 import styles from'./index.module.scss';
 
 
@@ -9,10 +8,6 @@ type TPropsType = {
   plaeholder?: string,
   onChange?: (newtext:string )=>void,
 }
-
-
-let state = useSelector((store)=>store.text);
-
 
 const props = defineProps<TPropsType>();
 function onInput(event: InputEvent){
@@ -30,8 +25,7 @@ function onInput(event: InputEvent){
 </script>
 
 <template>
-    {{ state }}
-    <div :class="styles.MyInput+` noselect`" :d-sd="state">
+    <div :class="styles.MyInput+` noselect`">
           {{ props.text }}{{props.text?.length}}/{{props.charLimit}}
         <textarea :value="props.text" :placeholder="props.plaeholder" @input="(event)=>onInput(event as InputEvent)"></textarea>
         <span v-if="props.charLimit && props.charLimit>0">{{props.text?.length}}/{{props.charLimit}}</span>

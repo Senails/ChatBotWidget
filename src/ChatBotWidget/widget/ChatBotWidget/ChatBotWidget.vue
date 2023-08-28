@@ -21,7 +21,6 @@ type TPropsType = {
 const props = defineProps<TPropsType>();
 const text = ref("");
 
-
 const SendMessege = (mess: string)=>{
     props.onSendMessage?.(mess);
     text.value = "";
@@ -62,7 +61,7 @@ const CloseChat = ()=>{
                 </div>
             </div>
         </div>
-        <button @click="CloseChat">x</button>
+        <button @click="CloseChat">x{{ rrrr }}</button>
         <button 
         :on-mousedown="props.onWantMove"
         :hidden="!showMoveButton"

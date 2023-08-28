@@ -20,9 +20,3 @@ export function CreateVueStore(initialStore: Store){
         UpdateStore
     }
 }
-
-const initStore: Store  = {
-    num: 0,
-    text : "12"
-};
-export const {useSelector , UpdateStore } = CreateVueStore(initStore);
