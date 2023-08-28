@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-import MyButton from './MyButton.vue';
+import ChatBotWidget from './ChatBotWidget.vue';
 
 const meta = {
-  title: 'ChatBot/Components/MyMessage',
-  component: MyButton,
-} satisfies Meta<typeof MyButton>;
+  title: 'ChatBot/ChatBotWidget',
+  component: ChatBotWidget,
+} satisfies Meta<typeof ChatBotWidget>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

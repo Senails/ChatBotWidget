@@ -1,0 +1,23 @@
+.MessageView{
+    padding: 0 10px;
+    width: 100%;
+    height: 100%;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-direction: column-reverse;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+    scrollbar-width: thin;
+    scrollbar-color: #00000000 #00000000;
+
+    background-color: rgb(203, 173, 205);
+}
+
+.MessageConteiner{
+    margin: 10px 0;
+}

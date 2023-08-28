@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import styles from'./MyButton.module.scss';
+import styles from'./index.module.scss';
 
 type TPropsType = {
   text?: string,
