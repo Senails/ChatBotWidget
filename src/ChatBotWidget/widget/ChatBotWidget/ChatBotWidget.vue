@@ -6,6 +6,7 @@ import MyButton from '../../../shared/components/Button/MyButton.vue';
 import MessageView from '../../components/MessageView/MessageView.vue';
 import { ref } from 'vue';
 
+
 import type { TMessageType } from '../../types';
 
 
@@ -21,6 +22,7 @@ type TPropsType = {
 const props = defineProps<TPropsType>();
 const text = ref("");
 
+
 const SendMessege = (mess: string)=>{
     props.onSendMessage?.(mess);
     text.value = "";
@@ -28,6 +30,7 @@ const SendMessege = (mess: string)=>{
 const CloseChat = ()=>{
     props.onClickClose?.();
 }
+
 
 </script>
 
@@ -61,7 +64,7 @@ const CloseChat = ()=>{
                 </div>
             </div>
         </div>
-        <button @click="CloseChat">x{{ rrrr }}</button>
+        <button @click="CloseChat">x</button>
         <button 
         :on-mousedown="props.onWantMove"
         :hidden="!showMoveButton"
@@ -69,5 +72,6 @@ const CloseChat = ()=>{
         {{`<->`}}
     </button> 
     </div>
+    {{ state }}
 </template>
 

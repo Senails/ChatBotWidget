@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import styles from'./index.module.scss';
-import { ref, watch } from 'vue';
+import {ref, watch } from 'vue';
 import MyButton from '../../../shared/components/Button/MyButton.vue';
 
 
@@ -23,7 +23,6 @@ const clickHandler = (text:string, index: number)=>{
 watch(props,()=>{
     list.value = [...props.list,"{x}"];
 })
-
 </script>
 
 <template>

@@ -3,10 +3,10 @@ import { computed, onUnmounted, ref } from "vue";
 import { CreateUnivarsalStore, type Selector, type Store } from "../UiversalStore/store";
 
 
-export function CreateVueStore(initialStore: Store){
-    const {Sub, UpdateStore} = CreateUnivarsalStore(initialStore);
+export function CreateVueStore<T extends Store>(initialStore: T){
+    const {Sub, UpdateStore} = CreateUnivarsalStore<T>(initialStore);
 
-    function useSelector(selectorCallback: Selector){
+    function useSelector(selectorCallback: Selector<T>){
         const retrt = ref(false);
         const forceRender = ()=>{retrt.value = !retrt.value;};
         const { unSub, getStore } = Sub(forceRender,selectorCallback);

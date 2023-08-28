@@ -1,11 +1,11 @@
 import { IsPrimitive } from "../IsPrimitive/IsPrimitive";
 
-export function CreateRecursiveCopy(obj:{[key:string]: any}):object{
+export function CreateRecursiveCopy<T>(obj:T):T{
     if (IsPrimitive(obj)) return obj;
-    if (Array.isArray(obj)) return obj.map((elem)=>CreateRecursiveCopy(elem));
+    if (Array.isArray(obj)) return obj.map((elem)=>CreateRecursiveCopy(elem)) as T;
 
-    let copy: {[key:string]: any} = {};
-    for(let key in obj){copy[key] = CreateRecursiveCopy(obj[key]);}
+    const copy: {[key:string]: any} = {};
+    for(const key in obj){copy[key] = CreateRecursiveCopy(obj[key]);}
 
-    return copy;
+    return copy as T;
 }

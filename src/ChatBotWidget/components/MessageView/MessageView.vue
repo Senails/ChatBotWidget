@@ -2,7 +2,7 @@
 import type { TMessageType } from '@/ChatBot/types';
 import styles from'./index.module.scss';
 import MyMessage from '../Message/MyMessage.vue';
-import { computed } from 'vue';
+import { computed, onUpdated } from 'vue';
 
 type TPropsType = {
   messageList: TMessageType[],
@@ -10,7 +10,6 @@ type TPropsType = {
 
 const props = defineProps<TPropsType>()
 const messageList = computed(()=>props.messageList.map((e)=>e).reverse())
-
 </script>
 
 <template>

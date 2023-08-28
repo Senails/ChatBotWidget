@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed} from 'vue';
 import styles from'./index.module.scss';
+import { UpdateStore, useSelector } from '@/ChatBotWidget/Entities/Store';
 
 type TPropsType = {
   text: string,
@@ -8,6 +9,7 @@ type TPropsType = {
   authorname: string,
   align?: "left"|"right"
 }
+
 
 const props = defineProps<TPropsType>()
 const reverse = computed(()=>props.align==="right"?styles.reverse:"");
