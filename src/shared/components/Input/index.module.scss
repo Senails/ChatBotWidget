@@ -1,0 +1,63 @@
+.MyInput{
+    position: relative;
+    padding: 10px 10px 10px 10px;
+
+    max-width: 500px;
+    width: 100%;
+    color: white;
+
+    box-shadow: var(--BoxShadow);
+    overflow: hidden;
+
+    > textarea{
+        position: absolute;
+        padding: 10px 10px 0 10px;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: calc(100% - 10px);
+
+        resize: none;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    > div{
+        height: 20px;
+    }
+
+    > span{
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+
+        color: rgba(0, 0, 0, 0.5);
+        line-height: 12px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+.MyInput, .MyInput > textarea {
+    box-sizing: border-box;
+    max-height: 80px;
+
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    line-height: 16px;
+    font-size: 16px;
+    background-color: white;
+
+    white-space: pre-wrap;
+    word-break: break-all;
+
+    &::-webkit-scrollbar {
+        width: 0px;
+    }
+    scrollbar-width: thin;
+    scrollbar-color: #00000000 #00000000;
+}

@@ -1,0 +1,21 @@
+.MyButton{
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+
+    font-size: 16px;
+    line-height: 16px;
+
+    color: black;
+    background: white;
+    box-shadow: var(--BoxShadow);
+
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.8;
+    }
+    &:active{
+        opacity: 0.6;
+    }
+}
