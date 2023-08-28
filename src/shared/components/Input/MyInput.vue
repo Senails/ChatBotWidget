@@ -1,12 +1,17 @@
 <script lang="ts" setup>
+import { useSelector } from '@/shared/MyStateMeneger/Vue/VueState';
 import styles from'./index.module.scss';
 
 
 type TPropsType = {
   text?: string,
   charLimit?: number,
+  plaeholder?: string,
   onChange?: (newtext:string )=>void,
 }
+
+
+let state = useSelector((store)=>store.text);
 
 
 const props = defineProps<TPropsType>();
@@ -25,10 +30,12 @@ function onInput(event: InputEvent){
 </script>
 
 <template>
-    <div :class="styles.MyInput+` noselect`" :d-sd="text">
-          {{ props.text}}
-        <textarea :value="props.text" @input="(event)=>onInput(event as InputEvent)"></textarea>
+    {{ state }}
+    <div :class="styles.MyInput+` noselect`" :d-sd="state">
+          {{ props.text }}{{props.text?.length}}/{{props.charLimit}}
+        <textarea :value="props.text" :placeholder="props.plaeholder" @input="(event)=>onInput(event as InputEvent)"></textarea>
         <span v-if="props.charLimit && props.charLimit>0">{{props.text?.length}}/{{props.charLimit}}</span>
     </div>
 </template>
 
+@/shared/Libs/MyStateMeneger/Vue/VueState
