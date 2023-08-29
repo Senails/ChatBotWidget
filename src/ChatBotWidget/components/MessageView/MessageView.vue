@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import type { TMessageType } from '@/ChatBot/types';
 import styles from'./index.module.scss';
 import MyMessage from '../Message/MyMessage.vue';
 import { computed} from 'vue';
+import type { TMessageType } from '@/ChatBotWidget/types';
 
 type TPropsType = {
   messageList: TMessageType[],
