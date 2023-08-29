@@ -22,7 +22,7 @@ export async function GetBotAnswer(userMessae: string):Promise<TBotAnswer>{
         botMessage.text="Я установлю будильник. Что то еще?"
     }else if (userMessae === "Вывести погоду"){ 
         botMessage.text="Я покажу погоду. Что то еще?"
-    }else {botMessage.text="Я постараюсь сделать все что моих силах. Что то еще?" }
+    }else {botMessage.text="Я постараюсь сделать все что в моих силах. Что то еще?" }
 
     return {
         botMessage,

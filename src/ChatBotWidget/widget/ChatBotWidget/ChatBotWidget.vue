@@ -12,7 +12,7 @@ import { useSelector } from '@/ChatBotWidget/Entities/Store';
 
 
 type TPropsType = {
-    onWantMove?: ()=>void | undefined,
+    onWantMove?: (event:MouseEvent)=>void | undefined,
     onClickClose?: ()=>void,
     showMoveButton?: boolean,
 }
@@ -69,7 +69,9 @@ const CloseChat = ()=>{
 
         <!-- close and move buttons -->
         <button @click="CloseChat">x</button>
-        <button :on-mousedown="props.onWantMove" :hidden="!showMoveButton"> 
+        <button 
+        @mousedown="props.onWantMove" 
+        :hidden="!showMoveButton"> 
             {{`<->`}}
         </button> 
     </div>

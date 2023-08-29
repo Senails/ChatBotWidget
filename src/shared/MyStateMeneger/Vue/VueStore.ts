@@ -12,7 +12,7 @@ export function CreateVueStore<T extends Store>(initialStore: T){
         const { unSub, getStore } = Sub(forceRender,selectorCallback);
         onUnmounted(()=>unSub);
     
-        return computed(()=>retrt.value?getStore(selectorCallback):getStore(selectorCallback));
+        return computed<T>(()=>retrt.value?getStore(selectorCallback):getStore(selectorCallback));
     }
 
     return {
