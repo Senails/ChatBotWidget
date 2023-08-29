@@ -52,7 +52,7 @@ const CloseChat = ()=>{
             </div>
             <div :class="styles.InputConteiner">
                 <div>
-                    <MyButton text="Send" background-color="black" color="white" 
+                    <MyButton text="^" background-color="black" color="white" 
                         :onClick="()=>inputText.length>0 && SendMessege(inputText)"
                     />
                 </div>

@@ -13,7 +13,7 @@ const initStore:StoreType = {
     prevMessageList: [{
         id: Date.now(),
         text: "Привет! Что я могу для Вас сделать?",
-        authorname: "ChatBot",
+        authorname: "Чат бот",
         date:""
     }],
     botIsLoading: false,

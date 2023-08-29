@@ -12,7 +12,7 @@ export async function GetBotAnswer(userMessae: string):Promise<TBotAnswer>{
     const botMessage = {
         id: Date.now(),
         text: "Привет! Что я могу для Вас сделать?",
-        authorname: "ChatBot",
+        authorname: "Чат бот",
         date:""
     }
 

@@ -26,7 +26,7 @@ const messageList = computed(()=>{
             <MyMessage 
             :text="elem.text" 
             :date="elem.date" 
-            :authorname="elem.authorname==``?'its your message':elem.authorname"
+            :authorname="elem.authorname==``?'Вы':elem.authorname"
             :align="elem.authorname==``?'right':'left'"
             />
         </div>
