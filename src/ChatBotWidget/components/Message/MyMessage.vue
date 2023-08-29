@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed} from 'vue';
 import styles from'./index.module.scss';
-import { UpdateStore, useSelector } from '@/ChatBotWidget/Entities/Store';
 
 type TPropsType = {
   text: string,

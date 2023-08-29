@@ -26,7 +26,7 @@ watch(props,()=>{
 </script>
 
 <template>
-    <div :class="styles.ButtonsList">
+    <div v-if="list.length>1" :class="styles.ButtonsList">
         <div v-for="value,key in list" :key="key" :style="{display:`inline-block`, margin:`5px`}">
             <MyButton :text=value  @click="()=>clickHandler(value,key)"/>
         </div>

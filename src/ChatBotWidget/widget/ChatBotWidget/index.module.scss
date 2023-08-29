@@ -3,10 +3,9 @@
     width:  400px;
     height: 500px;
 
-
-    // border: 2px solid rgb(95, 74, 95);
     border-radius: 20px;
     overflow: hidden;
+    background-color: rgb(230, 194, 225);
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.8);
     
 
@@ -55,11 +54,9 @@
     }
 }
 
-
 .MessageSection{
     position: relative;
     flex-grow: 1;
-    background-color: rgb(230, 194, 225);
 
     >div{
         position: absolute;
@@ -86,4 +83,20 @@
             margin-right: 10px;
         }
     }
+}
+
+.BotIsLoading{
+    box-sizing: content-box;
+
+    padding: 5px 20px;
+    height: 55px;
+    background: linear-gradient(180deg, rgba(95, 74, 95, 0), rgb(67, 53, 67) 100%);
+
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.Hide{
+    padding: 0 20px;
+    height: 0px;
 }

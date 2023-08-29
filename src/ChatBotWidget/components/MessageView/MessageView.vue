@@ -2,14 +2,18 @@
 import type { TMessageType } from '@/ChatBot/types';
 import styles from'./index.module.scss';
 import MyMessage from '../Message/MyMessage.vue';
-import { computed, onUpdated } from 'vue';
+import { computed} from 'vue';
 
 type TPropsType = {
   messageList: TMessageType[],
 }
 
 const props = defineProps<TPropsType>()
-const messageList = computed(()=>props.messageList.map((e)=>e).reverse())
+const messageList = computed(()=>{
+    let arr = props.messageList.map((e)=>e).reverse();
+    if (props.messageList.length<50) return arr;
+    return arr.slice(0,50);
+})
 </script>
 
 <template>
