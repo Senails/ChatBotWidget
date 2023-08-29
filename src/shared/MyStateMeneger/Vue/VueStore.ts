@@ -17,6 +17,6 @@ export function CreateVueStore<T extends Store>(initialStore: T){
 
     return {
         useSelector,
-        UpdateStore
+        updateStore:UpdateStore
     }
 }

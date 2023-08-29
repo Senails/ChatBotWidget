@@ -1,12 +1,12 @@
 import { GetBotAnswer } from "../Utils/GetBotAnswer";
-import { UpdateStore } from "./Store";
+import { updateStore } from "./Store";
 
 
 export async function SendMessageToBot(text:string){
     SetLoading(true);
     SetMyMessage(text);
     const res = await GetBotAnswer(text)!;
-    UpdateStore((store)=>{
+    updateStore((store)=>{
         store.fastMessageList = res?.fastMessagesForUser;
         store.prevMessageList.push(res?.botMessage);
         return store;
@@ -20,7 +20,7 @@ function SetLoading(isActive: boolean){
     if (isActive){
         semafor++;
         if (semafor===1) {
-            UpdateStore((s)=>{
+            updateStore((s)=>{
                 s.botIsLoading = true;
                 return s;
             })
@@ -29,7 +29,7 @@ function SetLoading(isActive: boolean){
     }
     semafor--;
     if (semafor===0) {
-        UpdateStore((s)=>{
+        updateStore((s)=>{
             s.botIsLoading = false;
             return s;
         })
@@ -37,7 +37,7 @@ function SetLoading(isActive: boolean){
 }
 
 function SetMyMessage(text:string){
-    UpdateStore((store)=>{
+    updateStore((store)=>{
         store.prevMessageList.push({
             text,
             authorname:"",

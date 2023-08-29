@@ -5,10 +5,10 @@ import MyInput from '../../../shared/components/Input/MyInput.vue';
 import MyButton from '../../../shared/components/Button/MyButton.vue';
 import MyMessage from '../../components/Message/MyMessage.vue';
 import MessageView from '../../components/MessageView/MessageView.vue';
-import { onMounted, ref } from 'vue';
+import { ref } from 'vue';
 
-import { useSelector} from '@/ChatBotWidget/Entities/Store';
 import { SendMessageToBot } from '@/ChatBotWidget/Entities/Actions';
+import { useSelector } from '@/ChatBotWidget/Entities/Store';
 
 
 type TPropsType = {

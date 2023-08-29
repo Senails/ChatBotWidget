@@ -19,4 +19,4 @@ const initStore:StoreType = {
     botIsLoading: false,
 };
 
-export const { useSelector , UpdateStore} = CreateVueStore(initStore);
+export const { useSelector , updateStore} = CreateVueStore(initStore);
