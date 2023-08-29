@@ -53,4 +53,7 @@
 .Text{
     font-size: 14px;
     line-height: 14px;
+
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
 }
