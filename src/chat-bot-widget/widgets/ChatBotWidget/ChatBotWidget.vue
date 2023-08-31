@@ -72,7 +72,7 @@ const CloseChat = ()=>{
 
   
         <button @click="CloseChat">
-            <MouseHint :text="`переместить`">
+            <MouseHint :text="`закрыть`">
                 <span style="width: 30px;height: 30px;display: inline-block;">
                     {{`x`}}
                 </span>

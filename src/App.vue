@@ -11,9 +11,7 @@
 
 <template>
     <div :class="'App'">
-        <MouseHint :text="`скорее! скорее!`">
-            <MyButton v-if="!flag" text="Открыть чат бота" :onClick="()=>flag=!flag"/>
-        </MouseHint>
+        <MyButton v-if="!flag" text="Открыть чат бота" :onClick="()=>flag=!flag"/>
     </div>
     <Teleport v-if="flag" to="body">
         <ChatBotWindow :onClickClose="()=>flag=!flag"/>
