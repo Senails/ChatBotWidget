@@ -1,14 +1,6 @@
-import { CreateVueStore } from "@/shared/MyStateMeneger/Vue/VueStore";
-import type { TMessageType } from "../types";
+import { CreateVueStore } from "@/shared/StateMeneger";
 
-
-type StoreType = {
-    fastMessageList: string[],
-    prevMessageList: TMessageType[],
-    botIsLoading:boolean,
-}
-
-const initStore:StoreType = {
+const initStore = {
     fastMessageList: ["Заказать пиццу", "Установить будильник", "Вывести погоду"],
     prevMessageList: [{
         id: Date.now(),

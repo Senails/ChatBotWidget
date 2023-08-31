@@ -1,8 +1,8 @@
 <script setup lang="ts">
     import { ref } from 'vue';
-    import ChatBotWindow from './ChatBotWidget/widget/ChatBotWindow/ChatBotWindow.vue';
     import MyButton from './shared/components/Button/MyButton.vue';
-
+    import ChatBotWindow from './chat-bot-widget/widgets/ChatBotWindow/ChatBotWindow.vue'
+    
     let flag = ref(false);
 
 </script>

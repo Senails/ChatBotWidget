@@ -6,9 +6,10 @@ import MyButton from '../../../shared/components/Button/MyButton.vue';
 import MyMessage from '../../components/Message/MyMessage.vue';
 import MessageView from '../../components/MessageView/MessageView.vue';
 import { ref } from 'vue';
+import { useSelector } from '@/chat-bot-widget/Entities/Store';
+import { SendMessageToBot } from '@/chat-bot-widget/Entities/Actions';
 
-import { SendMessageToBot } from '@/ChatBotWidget/Entities/Actions';
-import { useSelector } from '@/ChatBotWidget/Entities/Store';
+
 
 
 type TPropsType = {
