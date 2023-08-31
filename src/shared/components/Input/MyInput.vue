@@ -31,5 +31,3 @@ function onInput(event: InputEvent){
         <span v-if="props.charLimit && props.charLimit>0">{{props.text?.length}}/{{props.charLimit}}</span>
     </div>
 </template>
-
-@/shared/Libs/MyStateMeneger/Vue/VueState

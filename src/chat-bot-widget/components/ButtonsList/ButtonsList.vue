@@ -2,6 +2,7 @@
 import styles from'./index.module.scss';
 import {ref, watch } from 'vue';
 import MyButton from '../../../shared/components/Button/MyButton.vue';
+import MouseHint from '../../../shared/components/MouseHint/MouseHint.vue'
 
 
 type TPropsType = {
@@ -28,7 +29,9 @@ watch(props,()=>{
 <template>
     <div v-if="list.length>1" :class="styles.ButtonsList">
         <div v-for="value,key in list" :key="key" :style="{display:`inline-block`, margin:`5px`}">
-            <MyButton :text=value  @click="()=>clickHandler(value,key)"/>
+            <MouseHint :text="key<list.length-1?`отправить сообщение`:`закрыть варианты`">
+                <MyButton :text=value  @click="()=>clickHandler(value,key)"/>
+            </MouseHint>
         </div>
     </div>
 </template>

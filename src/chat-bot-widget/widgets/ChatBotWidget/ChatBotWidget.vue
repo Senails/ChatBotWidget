@@ -8,7 +8,7 @@ import MessageView from '../../components/MessageView/MessageView.vue';
 import { ref } from 'vue';
 import { useSelector } from '@/chat-bot-widget/Entities/Store';
 import { SendMessageToBot } from '@/chat-bot-widget/Entities/Actions';
-
+import MouseHint from '../../../shared/components/MouseHint/MouseHint.vue';
 
 
 
@@ -53,9 +53,11 @@ const CloseChat = ()=>{
             </div>
             <div :class="styles.InputConteiner">
                 <div>
-                    <MyButton text="^" background-color="black" color="white" 
-                        :onClick="()=>inputText.length>0 && SendMessege(inputText)"
-                    />
+                    <MouseHint :text="`отправить сообщение`">
+                        <MyButton text="^" background-color="black" color="white" 
+                            :onClick="()=>inputText.length>0 && SendMessege(inputText)"
+                        />
+                    </MouseHint>
                 </div>
                 <div>
                     <MyInput v-bind:="{
@@ -68,13 +70,14 @@ const CloseChat = ()=>{
             </div>
         </div>
 
-        <!-- close and move buttons -->
-        <button @click="CloseChat">x</button>
+  
+        <button @click="CloseChat"><MouseHint :text="`закрыть`">x</MouseHint></button>
         <button 
         @mousedown="props.onWantMove" 
         :hidden="!showMoveButton"> 
-            {{`<->`}}
+            <MouseHint :text="`переместить`">{{`<->`}}</MouseHint>
         </button> 
     </div>
 </template>
 
+../../../shared/components/MouseHint1/MouseHint.vue

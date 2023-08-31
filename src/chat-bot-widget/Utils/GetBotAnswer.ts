@@ -1,4 +1,4 @@
-import { Sleep } from "@/shared/Utils/Sleep";
+import { Sleep } from "@/shared/Utils/Sleep/Sleep";
 import type { TMessageType } from "../types"
 
 export type TBotAnswer = {
