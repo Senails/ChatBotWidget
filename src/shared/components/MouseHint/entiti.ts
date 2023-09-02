@@ -52,8 +52,6 @@ export class Hint extends HTMLElement {
 
     //hint contollers
     private static Show(text: string, x: number|null = null, y: number|null = null):void{
-        if (text==='') return this.RemoveElem();
-
         const elem = this.GetHintElement();
         if (!elem) return;
 
@@ -115,8 +113,7 @@ export class Hint extends HTMLElement {
         elem.classList.add("noselect");
     
         elem.addEventListener("mouseenter",()=>{
-            elem.remove();
-            this._elem = null;
+            this.RemoveElem();
         });
     
         document.body.appendChild(elem);

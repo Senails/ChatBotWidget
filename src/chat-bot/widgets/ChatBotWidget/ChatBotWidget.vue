@@ -83,8 +83,8 @@ const CloseChat = ()=>{
         </button>
         <button 
         @mousedown="props.onWantMove" 
-        :hidden="!showMoveButton"> 
-            <MouseHint :text="!moveHintDisable?`переместить`:''">
+        :hidden="!showMoveButton">
+            <MouseHint :text="`переместить`">
                 <span style="width: 30px;height: 30px;display: inline-block;">
                     {{`<->`}}
                 </span>
