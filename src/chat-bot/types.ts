@@ -1,5 +1,5 @@
 export type TMessageType = {
-    id:number,
+    id: number,
     text: string,
     date: string,
     authorname: string,

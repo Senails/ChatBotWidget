@@ -3,7 +3,7 @@
 import styles from'./index.module.scss';
 import ChatBotWidget from '../ChatBotWidget/ChatBotWidget.vue';
 import { computed, ref } from 'vue';
-import { MoveStart, useSelector } from './state';
+import { MoveStart, useSelector } from './utils';
 
 
 type TPropsType = {
@@ -36,4 +36,4 @@ const styleObject = computed(()=>{
         :show-move-button="true"
         />
     </div>
-</template>
+</template>./utils

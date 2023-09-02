@@ -1,9 +1,7 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import MyButton from './shared/components/Button/MyButton.vue';
-    import ChatBotWindow from './chat-bot-widget/widgets/ChatBotWindow/ChatBotWindow.vue'
-    
-    import MouseHint from './shared/components/MouseHint/MouseHint.vue';
+    import ChatBotWindow from './chat-bot/widgets/ChatBotWindow/ChatBotWindow.vue'
 
     let flag = ref(false);
 
