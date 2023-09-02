@@ -5,11 +5,12 @@ const initStore = {
     X: 0,
     Y: 0,
     moved: false,
+    moving: false,
 };
 
 
 // стейт управления перемещение окна
-export const { useSelector , updateStore , getStore} = CreateVueStore(initStore);
+export const { useSelector: moveSelector , updateStore , getStore} = CreateVueStore(initStore);
 
 
 export function MoveStart(event: MouseEvent, conteiner: HTMLDivElement|null){
@@ -41,12 +42,17 @@ export function MoveStart(event: MouseEvent, conteiner: HTMLDivElement|null){
             s.X = newLeft;
             s.Y = newTop;
             s.moved = true;
+            s.moving = true;
             return s;
         })
     }
     function MouseUp(){
         window.removeEventListener('mousemove',MouseMove);
         window.removeEventListener('mousemove',MouseUp);
+        updateStore((s)=>{
+            s.moving = false;
+            return s;
+        })
     }
     function Resize(){
         const conteiner = document.getElementById('ChatModal');

@@ -1,4 +1,3 @@
-
 import { CreateTrotling, type Trotling } from '@/shared/Utils/CreateTrottling/CreateTrotling';
 import styles from './index.module.scss';
 
@@ -14,7 +13,7 @@ export class Hint extends HTMLElement {
     private static _cssClass: string = styles.Hint;
 
     private static _elem: HTMLElement|null = null;
-    private static _setTimeoutTocken: NodeJS.Timeout|null = null;
+    private static _hoverElem: Hint|null = null;
 
     private static _posIsTop: boolean = false;
     private static _posIsLeft: boolean = false;
@@ -22,11 +21,7 @@ export class Hint extends HTMLElement {
     private static _trotlingShow: Trotling = CreateTrotling(Math.ceil(1000 / 60));
     private static _trotlingHide: Trotling = CreateTrotling(Math.ceil(1000 / 60));
 
-    private static _hoverElem: Hint|null = null;
-
-    
     private _text: string|null = null;
-    
 
     //lifecicle
     public connectedCallback() {
@@ -49,7 +44,6 @@ export class Hint extends HTMLElement {
     }
     attributeChangedCallback(name: string, _: string, newValue: string) {
         if (name === "text"){
-            console.log(newValue)
             this._text = newValue;
             if (Hint._elem) Hint.Show(newValue);
         }
@@ -58,8 +52,9 @@ export class Hint extends HTMLElement {
 
     //hint contollers
     private static Show(text: string, x: number|null = null, y: number|null = null):void{
+        if (text==='') return this.RemoveElem();
+
         const elem = this.GetHintElement();
-        if (this._setTimeoutTocken) clearTimeout(this._setTimeoutTocken);
         if (!elem) return;
 
         elem.innerHTML = text;
@@ -75,20 +70,20 @@ export class Hint extends HTMLElement {
         elem.style.right = pos.right;
     }
     private static Hide(){
+        if (!this._elem) return;
+
         const elem = this.GetHintElement();
         if (!elem) return;
         elem.style.transition = "opacity 0.5s";
         elem.style.opacity = "0";
-    
-        this._setTimeoutTocken = setTimeout(()=>{
-            if (!elem) return;
-            elem.remove();
-            this._elem = null;
-        },500);
     }  
 
 
     //utils
+    private static RemoveElem(){
+        this._elem?.remove();
+        this._elem = null;
+    }
     private static CalculateHintPosition(x:number,y:number):HintPosition{
         const docW = document.documentElement.clientWidth;
         const docH = document.documentElement.clientHeight;

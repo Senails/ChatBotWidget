@@ -3,7 +3,7 @@
 import styles from'./index.module.scss';
 import ChatBotWidget from '../ChatBotWidget/ChatBotWidget.vue';
 import { computed, ref } from 'vue';
-import { MoveStart, useSelector } from './utils';
+import { MoveStart, moveSelector } from '../../Entities/MoveSate';
 
 
 type TPropsType = {
@@ -13,7 +13,7 @@ type TPropsType = {
 const props = defineProps<TPropsType>();
 let conteiner = ref<HTMLDivElement|null>(null);
 
-const state = useSelector((s)=>s);
+const state = moveSelector((s)=>s);
 const styleObject = computed(()=>{
     return {
         top: state.value.Y+'px',
@@ -36,4 +36,4 @@ const styleObject = computed(()=>{
         :show-move-button="true"
         />
     </div>
-</template>./utils
+</template>./utils../../Entities/utils../../Entities/moveSate

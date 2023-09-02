@@ -6,9 +6,10 @@ import MyButton from '../../../shared/components/Button/MyButton.vue';
 import MyMessage from '../../components/Message/MyMessage.vue';
 import MessageView from '../../components/MessageView/MessageView.vue';
 import { ref } from 'vue';
-import { useSelector } from '@/chat-bot-widget/Entities/Store';
-import { SendMessageToBot } from '@/chat-bot-widget/Entities/Actions';
+import { useSelector } from '@/chat-bot/Entities/Store';
+import { SendMessageToBot } from '@/chat-bot/Entities/Actions';
 import MouseHint from '../../../shared/components/MouseHint/MouseHint.vue';
+import { moveSelector } from '@/chat-bot/Entities/MoveSate';
 
 
 
@@ -21,7 +22,9 @@ type TPropsType = {
 const props = defineProps<TPropsType>();
 const inputText = ref("");
 const store = useSelector((s)=>s);
+const moveHintDisable = moveSelector((s)=>s.moving);
 
+console.log(moveHintDisable.value);
 
 const SendMessege = (mess: string)=>{
     SendMessageToBot(mess);
@@ -81,7 +84,7 @@ const CloseChat = ()=>{
         <button 
         @mousedown="props.onWantMove" 
         :hidden="!showMoveButton"> 
-            <MouseHint :text="`переместить`">
+            <MouseHint :text="!moveHintDisable?`переместить`:''">
                 <span style="width: 30px;height: 30px;display: inline-block;">
                     {{`<->`}}
                 </span>
