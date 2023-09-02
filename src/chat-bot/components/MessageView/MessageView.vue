@@ -2,7 +2,7 @@
 import styles from'./index.module.scss';
 import MyMessage from '../Message/MyMessage.vue';
 import { computed} from 'vue';
-import type { TMessageType } from '@/chat-bot-widget/types';
+import type { TMessageType } from '@/chat-bot/types';
 
 type TPropsType = {
   messageList: TMessageType[],
