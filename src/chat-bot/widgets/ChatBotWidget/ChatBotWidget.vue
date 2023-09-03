@@ -24,8 +24,6 @@ const inputText = ref("");
 const store = useSelector((s)=>s);
 const moveHintDisable = moveSelector((s)=>s.moving);
 
-console.log(moveHintDisable.value);
-
 const SendMessege = (mess: string)=>{
     SendMessageToBot(mess);
     inputText.value = "";

@@ -61,8 +61,6 @@ export function MoveStart(event: MouseEvent, conteiner: HTMLDivElement|null){
 
         const newTop = Math.min(Math.max(top, 0),window.innerHeight - conteiner.clientHeight);
         const newLeft = Math.min(Math.max(left, 0),window.innerWidth - conteiner.clientWidth);
-        
-        console.log(top, left , newTop , newLeft)
 
         updateStore((s)=>{
             s.X = newLeft;

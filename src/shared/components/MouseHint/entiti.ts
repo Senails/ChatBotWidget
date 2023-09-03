@@ -21,15 +21,18 @@ export class Hint extends HTMLElement {
     private static _trotlingShow: Trotling = CreateTrotling(Math.ceil(1000 / 60));
     private static _trotlingHide: Trotling = CreateTrotling(Math.ceil(1000 / 60));
 
+    private static _isVisible = false;
+    
     private _text: string|null = null;
 
+    
     //lifecicle
     public connectedCallback() {
         this._text = this.getAttribute('text');
 
         this.addEventListener("mousemove",(event: MouseEvent)=>{
             if (this._text?.length === 0) return;
-            Hint._trotlingShow(() => Hint.Show(this._text!, event.clientX, event.clientY));
+            Hint._trotlingShow(()=>Hint.Show(this._text!, event.clientX, event.clientY));
             Hint._hoverElem = this;
         });
         this.addEventListener("mouseleave",()=>{
@@ -37,12 +40,13 @@ export class Hint extends HTMLElement {
         });
     }
     public disconnectedCallback() {
-        if (Hint._hoverElem === this) Hint.Hide();
-      }
+        if (Hint._hoverElem === this) Hint._trotlingHide(() => Hint.Hide());
+    }
     static get observedAttributes() {
         return ["text"];
     }
     attributeChangedCallback(name: string, _: string, newValue: string) {
+        if (!Hint._isVisible) return;
         if (name === "text"){
             this._text = newValue;
             if (Hint._elem) Hint.Show(newValue);
@@ -51,7 +55,8 @@ export class Hint extends HTMLElement {
 
 
     //hint contollers
-    private static Show(text: string, x: number|null = null, y: number|null = null):void{
+    public static Show(text: string, x: number|null = null, y: number|null = null):void{
+        Hint._isVisible = true;
         const elem = this.GetHintElement();
         if (!elem) return;
 
@@ -67,7 +72,8 @@ export class Hint extends HTMLElement {
         elem.style.left = pos.left;
         elem.style.right = pos.right;
     }
-    private static Hide(){
+    public static Hide(){
+        Hint._isVisible = false;
         if (!this._elem) return;
 
         const elem = this.GetHintElement();
