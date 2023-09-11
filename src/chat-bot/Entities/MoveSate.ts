@@ -1,4 +1,4 @@
-import { CreateVueStore } from "@/shared/StateMeneger";
+import { createEasyStore } from "easy-state-meneger-vue";
 
 
 const initStore = {
@@ -10,7 +10,7 @@ const initStore = {
 
 
 // стейт управления перемещение окна
-export const { useSelector: moveSelector , updateStore , getStore} = CreateVueStore(initStore);
+export const { useSelector: moveSelector , updateStore , getStore} = createEasyStore(initStore);
 
 
 export function MoveStart(event: MouseEvent, conteiner: HTMLDivElement|null){
@@ -22,7 +22,7 @@ export function MoveStart(event: MouseEvent, conteiner: HTMLDivElement|null){
     window.addEventListener('mouseup',MouseUp);
 
     
-    if (!getStore((s)=>s.moved)) window.addEventListener('resize',Resize);
+    if (!getStore().moved) window.addEventListener('resize',Resize);
 
     function MouseMove(event: MouseEvent){
         const deltaX = event.clientX - startX;

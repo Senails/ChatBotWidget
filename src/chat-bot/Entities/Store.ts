@@ -1,4 +1,4 @@
-import { CreateVueStore } from "@/shared/StateMeneger";
+import { createEasyStore } from "easy-state-meneger-vue";
 
 const initStore = {
     fastMessageList: ["Заказать пиццу", "Установить будильник", "Вывести погоду"],
@@ -11,4 +11,4 @@ const initStore = {
     botIsLoading: false,
 };
 
-export const { useSelector , updateStore} = CreateVueStore(initStore);
+export const { useSelector , updateStore} = createEasyStore(initStore);

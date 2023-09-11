@@ -14,6 +14,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "easy-state-meneger-vue": "^1.0.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
