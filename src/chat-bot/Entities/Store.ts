@@ -1,4 +1,4 @@
-import { createEasyStore } from "easy-state-meneger-vue";
+import { createEasyStore } from "easy-state-maneger-vue";
 
 const initStore = {
     fastMessageList: ["Заказать пиццу", "Установить будильник", "Вывести погоду"],
